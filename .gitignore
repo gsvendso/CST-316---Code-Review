@@ -1,0 +1,21 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+META-INF/*
+
+# Eclipse files
+*.project
+*.classpath
+*.metadata
+
+# My Emacs creates these durn backup files
+*~
+
+# ant-generated stuff
+build/*
+
+# Code Coverage artifacts
+jacoco.exec
