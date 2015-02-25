@@ -1,3 +1,11 @@
+/*
+ File: Account.java
+ Author: Keven Gary
+ Date: 02-25-2015
+ 
+ Description:   This class manages the creation of Accounts
+ */
+
 package banking.primitive.core;
 
 import java.io.IOException;

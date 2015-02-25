@@ -1,3 +1,11 @@
+/*
+ File: Account.java
+ Author: Keven Gary
+ Date: 02-25-2015
+ 
+ Description: This class is inherited by the Checking and Savings classes.
+ */
+
 package banking.primitive.core;
 
 public abstract class Account implements java.io.Serializable {

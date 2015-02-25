@@ -1,3 +1,12 @@
+/*
+ File: Account.java
+ Author: Keven Gary
+ Date: 02-25-2015
+ 
+ Description: Main class for running the program.
+
+ */
+
 package banking.gui;
 
 import javax.swing.JFrame;

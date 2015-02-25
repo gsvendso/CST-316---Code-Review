@@ -1,3 +1,11 @@
+/*
+ File: Account.java
+ Author: Keven Gary
+ Date: 02-25-2015
+ 
+ Description: This is the implementation of Account Server.
+ */
+
 package banking.primitive.core;
 
 import java.util.ArrayList;

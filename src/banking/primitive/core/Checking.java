@@ -1,3 +1,11 @@
+/*
+ File: Account.java
+ Author: Keven Gary
+ Date: 02-25-2015
+ 
+ Description: This class represents a checking account
+ */
+
 package banking.primitive.core;
 
 public class Checking extends Account {

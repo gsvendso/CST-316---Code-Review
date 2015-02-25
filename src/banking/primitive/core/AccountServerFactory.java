@@ -1,3 +1,11 @@
+/*
+ File: Account.java
+ Author: Keven Gary
+ Date: 02-25-2015
+ 
+ Description: This class creates Account Server objects
+ */
+
 package banking.primitive.core;
 
 

@@ -1,3 +1,11 @@
+/*
+ File: Account.java
+ Author: Keven Gary
+ Date: 02-25-2015
+ 
+ Description: GUI for Main form
+ */
+
 package banking.gui;
 
 import banking.primitive.core.Account;
