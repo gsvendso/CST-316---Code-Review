@@ -11,7 +11,7 @@ package banking.primitive.core;
 
 public class AccountServerFactory {
 
-	protected static AccountServerFactory singleton = null;
+	
 
 	protected AccountServerFactory() {
 
@@ -28,4 +28,6 @@ public class AccountServerFactory {
 	public AccountServer lookup() {
 		return new ServerSolution();
 	}
+    
+    protected static AccountServerFactory singleton = null;
 }
