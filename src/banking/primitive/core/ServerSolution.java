@@ -1,3 +1,11 @@
+/*
+ File: Account.java
+ Author: Keven Gary
+ Date: 02-25-2015
+ 
+ Description: This is the implementation of Account Server.
+ */
+
 package banking.primitive.core;
 
 import java.util.ArrayList;
@@ -45,28 +53,26 @@ class ServerSolution implements AccountServer {
 		}
 	}
 	
-	private boolean newAccountFactory(String type, String name, float balance)
-		throws IllegalArgumentException {
-		
-		if (accountMap.get(name) != null) return false;
-		
-		Account acc;
-		if ("Checking".equals(type)) {
-			acc = new Checking(name, balance);
-
-		} else if ("Savings".equals(type)) {
-			acc = new Savings(name, balance);
-
-		} else {
-			throw new IllegalArgumentException("Bad account type:" + type);
-		}
-		try {
-			accountMap.put(acc.getName(), acc);
-		} catch (Exception exc) {
-			return false;
-		}
-		return true;
-	}
+    
+    public Account getAccount(String name) {
+        return accountMap.get(name);
+    }
+    
+    public List<Account> getAllAccounts() {
+        return new ArrayList<Account>(accountMap.values());
+    }
+    
+    public List<Account> getActiveAccounts() {
+        List<Account> result = new ArrayList<Account>();
+        
+        for (Account acc : accountMap.values()) {
+            if (acc.getState() != State.CLOSED) {
+                result.add(acc);
+            }
+        }
+        return result;
+    }
+	
 
 	public boolean newAccount(String type, String name, float balance) 
 		throws IllegalArgumentException {
@@ -85,24 +91,6 @@ class ServerSolution implements AccountServer {
 		return true;
 	}
 
-	public Account getAccount(String name) {
-		return accountMap.get(name);
-	}
-
-	public List<Account> getAllAccounts() {
-		return new ArrayList<Account>(accountMap.values());
-	}
-
-	public List<Account> getActiveAccounts() {
-		List<Account> result = new ArrayList<Account>();
-
-		for (Account acc : accountMap.values()) {
-			if (acc.getState() != State.CLOSED) {
-				result.add(acc);
-			}
-		}
-		return result;
-	}
 	
 	public void saveAccounts() throws IOException {
 		ObjectOutputStream out = null; 
@@ -126,5 +114,28 @@ class ServerSolution implements AccountServer {
 			}
 		}
 	}
+    
+    private boolean newAccountFactory(String type, String name, float balance)
+    throws IllegalArgumentException {
+        
+        if (accountMap.get(name) != null) return false;
+        
+        Account acc;
+        if ("Checking".equals(type)) {
+            acc = new Checking(name, balance);
+            
+        } else if ("Savings".equals(type)) {
+            acc = new Savings(name, balance);
+            
+        } else {
+            throw new IllegalArgumentException("Bad account type:" + type);
+        }
+        try {
+            accountMap.put(acc.getName(), acc);
+        } catch (Exception exc) {
+            return false;
+        }
+        return true;
+    }
 
 }
