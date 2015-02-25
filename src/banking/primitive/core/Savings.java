@@ -12,9 +12,13 @@ public class Savings extends Account {
 		super(name, balance);
 	}
 
-	/**
-	 * A deposit comes with a fee of 50 cents per deposit
-	 */
+    /**
+     Method: deposit
+     Inputs: amount < 0
+     Returns: true*Doesn't really work if amount < 0 and account is open
+     
+     Description: Deposits money into savings account
+     */
 	public boolean deposit(float amount) {
 		if (getState() != State.CLOSED && amount > 0.0f) {
 			balance = balance + amount - 0.50F;
@@ -25,10 +29,14 @@ public class Savings extends Account {
 		return false;
 	}
 
-	/**
-	 * A withdrawal. After 3 withdrawals a fee of $1 is added to each withdrawal.
-	 * An account whose balance dips below 0 is in an OVERDRAWN state
-	 */
+    /**
+     Method: withdraw
+     Inputs: amount < 0
+     Returns:true if amount is in account and < 0 and if account is open
+     
+     Description: A withdrawal. After 3 withdrawals a fee of $1 is added to each withdrawal.
+     An account whose balance dips below 0 is in an OVERDRAWN state
+     */
 	public boolean withdraw(float amount) {
 		if (getState() == State.OPEN && amount > 0.0f) {
 			balance = balance - amount;
@@ -46,6 +54,13 @@ public class Savings extends Account {
 	
 	public String getType() { return "Checking"; }
 
+    /**
+     Method: toString
+     Inputs: None
+     Returns: returns string with type name and balance
+     
+     Description: Print type, name and balance to String
+     */
 	public String toString() {
 		return "Savings: " + getName() + ": " + getBalance();
 	}

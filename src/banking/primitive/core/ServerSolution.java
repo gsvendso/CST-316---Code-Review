@@ -10,9 +10,9 @@ import banking.primitive.core.Account.State;
 
 class ServerSolution implements AccountServer {
 
-	private static String fileName = "accounts.ser";
+	static String fileName = "accounts.ser";
 
-	private Map<String,Account> accountMap = null;
+	Map<String,Account> accountMap = null;
 
 	public ServerSolution() {
 		accountMap = new HashMap<String,Account>();
@@ -76,6 +76,13 @@ class ServerSolution implements AccountServer {
 		return newAccountFactory(type, name, balance);
 	}
 	
+    /**
+     Method: closeAccount
+     Inputs: Account name
+     Returns: true if account is closed
+     
+     Description: closes and account
+     */
 	public boolean closeAccount(String name) {
 		Account acc = accountMap.get(name);
 		if (acc == null) {
@@ -104,6 +111,13 @@ class ServerSolution implements AccountServer {
 		return result;
 	}
 	
+    /**
+     Method: saveAccounts
+     Inputs: None
+     Returns: None
+     
+     Description: Saves accounts to file
+     */
 	public void saveAccounts() throws IOException {
 		ObjectOutputStream out = null; 
 		try {
